@@ -10,3 +10,4 @@
 |              |        |         |
 ### Description
 
+This is a manage system for a small hotel. The main functions are add a new room, remove an exist room and change the room status.
