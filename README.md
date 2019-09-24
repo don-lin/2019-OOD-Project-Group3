@@ -1,3 +1,12 @@
-# 2019-OOD-Project-Group3
+## <center>Hotel Management System</center>
+### About our team 
+#### group member
 
-16206515 Chen Donglin(陈东临)
+| Name         | UCD ID | BJUT ID |
+| ------------ | ------ | ------- |
+|              |        |         |
+|              |        |         |
+|              |        |         |
+|              |        |         |
+### Description
+
