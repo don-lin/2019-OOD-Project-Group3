@@ -1,0 +1,21 @@
+title Add Walk-in ACE(2)
+
+actor Staff
+control BookingSystem
+participant Hotel
+entity Booking
+
+Staff ->BookingSystem:displayAllRoom
+activate BookingSystem
+
+BookingSystem ->BookingSystem:checkOverBooking
+
+BookingSystem ->Staff:confirmOverFill()
+activate Staff
+Staff -->BookingSystem:return false
+deactivate Staff
+
+BookingSystem -->Staff:
+deactivate BookingSystem
+
+
