@@ -1,0 +1,24 @@
+title Modify Room Price BCE
+actor Boss
+control ReservationSystem
+participant Hotel
+entity Room (current)
+entity Room (selected)
+
+Boss->ReservationSystem:selectRoom(roomNumber)
+activate ReservationSystem
+ReservationSystem->Room (current):*getInfo()
+ReservationSystem-->Boss:
+deactivate ReservationSystem
+
+
+Boss->ReservationSystem:changeRoom(price)
+activate ReservationSystem
+
+ReservationSystem->Hotel:updateRoom(selected, price)
+activate Hotel
+Hotel->Room (selected):setPrice(price)
+Hotel-->ReservationSystem:
+deactivate Hotel
+ReservationSystem-->Boss:
+deactivate ReservationSystem
