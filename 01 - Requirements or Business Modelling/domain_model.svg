@@ -1,0 +1,118 @@
+<svg version="1.1" baseProfile="full" width="1841.75" height="483" viewbox="0 0 1841.75 483" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" style="font-weight:bold; font-size:12pt; font-family:'Calibri', Helvetica, sans-serif;;stroke-width:3;stroke-linejoin:round;stroke-linecap:round">
+  <title >nomnoml</title>
+  <desc >[Booking|date;customer;room;paid;checkedIn]
+[Customer|name;telphoneNumber;vipLevel;description]
+[Room|roomNumber;price;type]
+
+[Account|account;password]
+
+[WalkIn]
+
+[DisplayAllRoomStatus]
+[RecordCustomerInformation]
+[AddABooking]
+[AddOrRemoveARoom]
+[CheckOut]
+[CheckIn]
+
+[WalkIn]-:&gt;[Booking]
+
+[CheckIn]-:&gt;[Booking]
+
+[DisplayAllRoomStatus]-&gt;[Room]
+[DisplayAvailableRoomStatus]-&gt;[Room]
+[DisplayEmptyRoomStatus]-&gt;[Room]
+[DisplayBookedRoomStatus]-&gt;[Room]
+
+[AddABooking]-:&gt;[Booking]
+
+[CheckOut]-:&gt;[Booking]
+
+[Booking]-1[Room]
+[Booking]-1[Customer]
+[WalkIn]-:&gt;[Booking]
+
+
+[RecordCustomerInformation]-:&gt;[Customer]
+
+[AddOrRemoveARoom]-:&gt;[Room]
+
+[AdministratorLogIn]-:&gt;[Account]
+[Account]-:&gt;[AddOrRemoveARoom]</desc>
+  <path d="M910.3 138.5 L910.3 181.5 L1102.5 245.5 L1102.5 245.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M1088.2 246.4 L1089.8 241.3 L1091.5 236.2 L1102.5 245.5 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+  <path d="M1030.8 138.5 L1030.8 181.5 L1102.5 228.8 L1102.5 228.8 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M1088.4 226 L1091.4 221.5 L1094.3 217.1 L1102.5 228.8 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+  <path d="M116.5 278 L116.5 343.5 L702.8 410.6 L702.8 410.6 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M688.9 414.4 L696.1 409.9 L690.1 403.8 L702.8 410.6 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+  <path d="M391 278 L391 343.5 L702.8 405.9 L702.8 405.9 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M688.6 408.5 L696.2 404.6 L690.7 398 L702.8 405.9 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+  <path d="M675 278 L675 343.5 L706.1 371 L706.1 371 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M692.6 366.2 L701.2 366.6 L699.7 358.2 L706.1 371 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+  <path d="M945 278 L945 343.5 L813.8 395.2 L813.8 395.2 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M824.2 385.3 L820 392.7 L828.1 395.2 L813.8 395.2 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+  <path d="M1172.8 138.5 L1172.8 181.5 L1168 201.5 L1168 201.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M1165.9 187.3 L1171.1 188.5 L1176.3 189.8 L1168 201.5 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+  <path d="M1319.3 138.5 L1319.3 181.5 L1204.5 237.6 L1204.5 237.6 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M1214.1 226.9 L1216.5 231.7 L1218.8 236.5 L1204.5 237.6 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+  <text x="796.3" y="398.7" style="fill: #33322E;font-weight:normal;">1</text>
+  <path d="M1153.5 323.5 L1153.5 343.5 L813.8 406.7 L813.8 406.7 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <text x="1615.8" y="357.1" style="fill: #33322E;font-weight:normal;">1</text>
+  <path d="M1204.5 272.3 L1576.8 343.5 L1607.8 365.1 L1607.8 365.1 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M1702.3 278 L1702.3 343.5 L1696.8 363.5 L1696.8 363.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M1695.2 349.2 L1700.3 350.6 L1705.5 352 L1696.8 363.5 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+  <path d="M1451.3 278 L1451.3 343.5 L813.8 411.1 L813.8 411.1 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M826.4 404.4 L827 409.7 L827.6 415 L813.8 411.1 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+  <path d="M1451.3 44.5 L1451.3 64.5 L1451.3 84.5 L1451.3 84.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M1445.9 71.2 L1451.3 71.2 L1456.6 71.2 L1451.3 84.5 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+  <path d="M1451.3 161.5 L1451.3 181.5 L1451.3 247 L1451.3 247 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <path d="M1445.9 233.7 L1451.3 233.7 L1456.6 233.7 L1451.3 247 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+  <rect x="1102.5" y="201.5" height="122" width="102" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1153.5" y="223" style="fill: #33322E;text-anchor: middle;">Booking</text>
+  <path d="M1102.5 232.5 L1204.5 232.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <text x="1110.5" y="254" style="fill: #33322E;font-weight:normal;">date</text>
+  <text x="1110.5" y="269" style="fill: #33322E;font-weight:normal;">customer</text>
+  <text x="1110.5" y="284" style="fill: #33322E;font-weight:normal;">room</text>
+  <text x="1110.5" y="299" style="fill: #33322E;font-weight:normal;">paid</text>
+  <text x="1110.5" y="314" style="fill: #33322E;font-weight:normal;">checkedIn</text>
+  <rect x="1607.5" y="363.5" height="107" width="149" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1682" y="385" style="fill: #33322E;text-anchor: middle;">Customer</text>
+  <path d="M1607.5 394.5 L1756.5 394.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <text x="1615.5" y="416" style="fill: #33322E;font-weight:normal;">name</text>
+  <text x="1615.5" y="431" style="fill: #33322E;font-weight:normal;">telphoneNumber</text>
+  <text x="1615.5" y="446" style="fill: #33322E;font-weight:normal;">vipLevel</text>
+  <text x="1615.5" y="461" style="fill: #33322E;font-weight:normal;">description</text>
+  <rect x="702.5" y="371.5" height="92" width="111" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="758" y="393" style="fill: #33322E;text-anchor: middle;">Room</text>
+  <path d="M702.5 402.5 L813.5 402.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <text x="710.5" y="424" style="fill: #33322E;font-weight:normal;">roomNumber</text>
+  <text x="710.5" y="439" style="fill: #33322E;font-weight:normal;">price</text>
+  <text x="710.5" y="454" style="fill: #33322E;font-weight:normal;">type</text>
+  <rect x="1405.5" y="84.5" height="77" width="92" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1451.5" y="106" style="fill: #33322E;text-anchor: middle;">Account</text>
+  <path d="M1405.5 115.5 L1497.5 115.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <text x="1413.5" y="137" style="fill: #33322E;font-weight:normal;">account</text>
+  <text x="1413.5" y="152" style="fill: #33322E;font-weight:normal;">password</text>
+  <rect x="871.5" y="107.5" height="31" width="78" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="910.5" y="129" style="fill: #33322E;text-anchor: middle;">WalkIn</text>
+  <rect x="13.5" y="247.5" height="31" width="206" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="116.5" y="269" style="fill: #33322E;text-anchor: middle;">DisplayAllRoomStatus</text>
+  <rect x="1575.5" y="247.5" height="31" width="254" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1702.5" y="269" style="fill: #33322E;text-anchor: middle;">RecordCustomerInformation</text>
+  <rect x="1112.5" y="107.5" height="31" width="121" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1173" y="129" style="fill: #33322E;text-anchor: middle;">AddABooking</text>
+  <rect x="1367.5" y="247.5" height="31" width="168" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1451.5" y="269" style="fill: #33322E;text-anchor: middle;">AddOrRemoveARoom</text>
+  <rect x="1273.5" y="107.5" height="31" width="92" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1319.5" y="129" style="fill: #33322E;text-anchor: middle;">CheckOut</text>
+  <rect x="989.5" y="107.5" height="31" width="83" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1031" y="129" style="fill: #33322E;text-anchor: middle;">CheckIn</text>
+  <rect x="259.5" y="247.5" height="31" width="263" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="391" y="269" style="fill: #33322E;text-anchor: middle;">DisplayAvailableRoomStatus</text>
+  <rect x="562.5" y="247.5" height="31" width="225" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="675" y="269" style="fill: #33322E;text-anchor: middle;">DisplayEmptyRoomStatus</text>
+  <rect x="827.5" y="247.5" height="31" width="235" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="945" y="269" style="fill: #33322E;text-anchor: middle;">DisplayBookedRoomStatus</text>
+  <rect x="1357.5" y="13.5" height="31" width="187" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+  <text x="1451" y="35" style="fill: #33322E;text-anchor: middle;">AdministratorLogIn</text>
+</svg>
