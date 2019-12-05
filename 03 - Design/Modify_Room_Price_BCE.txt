@@ -1,0 +1,68 @@
+actor Boss
+boundary RoomDialog
+boundary BossUI
+
+control ReservationSystem
+participant Hotel
+entity Room (current)
+entity Room (selected)
+participant RoomMapper
+database Database
+Boss->BossUI:mouseClick(arg,i)
+activate BossUI
+
+BossUI->BossUI:RoomButtonActionListener(i:int)
+
+BossUI->ReservationSystem:getRoom(id:int)
+activate ReservationSystem
+
+ReservationSystem->Room (current):getRoom(id:int)
+activate Room (current)
+
+Room (current)->ReservationSystem:return r : Room
+deactivate Room (current)
+ReservationSystem->BossUI:return r : Room
+deactivate ReservationSystem
+
+BossUI->BossUI:actionPerformed(arg:ActionEvent)
+
+BossUI->*RoomDialog:RoomDialog()
+activate RoomDialog
+RoomDialog-->BossUI:
+deactivate RoomDialog
+
+BossUI->RoomDialog:showAndWait()
+activate RoomDialog
+RoomDialog->Boss:
+Boss-->RoomDialog:
+RoomDialog-->BossUI:
+deactivate RoomDialog
+
+BossUI->ReservationSystem:changeSelected(price:int, r:Room)
+activate ReservationSystem
+
+expandable- see diagrams 02 - Add Room ECE (2) (illegal input)
+	ReservationSystem->ReservationSystem:checkIllegalPrice(price:int)
+end
+ReservationSystem->Room (selected):setPrice(price : int)
+ReservationSystem->Hotel:updateRoom(selected : Room)
+activate Hotel
+Hotel->RoomMapper:updateRoom(r : Room)
+activate RoomMapper
+RoomMapper->RoomMapper:performUpdate(sql : String)
+activate RoomMapper
+RoomMapper->Database:executeUpdate(sql : String)
+RoomMapper-->RoomMapper:
+deactivate RoomMapper
+RoomMapper-->Hotel:
+
+
+Hotel-->ReservationSystem:
+deactivate Hotel
+
+ReservationSystem->ReservationSystem:notifyObservers()
+ReservationSystem-->BossUI:
+deactivate ReservationSystem
+
+BossUI-->Boss:
+deactivate BossUI
