@@ -1,0 +1,59 @@
+actor Boss
+boundary Alert
+boundary RoomDialog
+boundary BossUI
+control ReservationSystem
+
+Boss->BossUI:addRoom()
+activate BossUI
+
+BossUI->*RoomDialog:RoomDialog()
+activate RoomDialog
+RoomDialog-->BossUI:
+deactivate RoomDialog
+
+BossUI->RoomDialog:showAndWait()
+activate RoomDialog
+RoomDialog->Boss:
+Boss-->RoomDialog:
+RoomDialog-->BossUI:
+deactivate RoomDialog
+
+BossUI->ReservationSystem:addRoom(roomNumber:int, price:int, type:String)
+activate ReservationSystem
+
+ReservationSystem->ReservationSystem:checkDoubleRoom(RoomNumber:int)
+activate ReservationSystem
+note over ReservationSystem: the number of this room overlaps with a previous room
+
+
+ReservationSystem->ReservationSystem:observerMessage(message : String, false : Boolean)
+activate ReservationSystem
+ReservationSystem->BossUI: message(message : String, false : Boolean)
+activate BossUI
+BossUI->*Alert:Alert( warning : AlertType)
+activate Alert
+Alert-->BossUI:
+deactivate Alert
+
+BossUI->Alert:showAndWait();
+activate Alert
+Alert->Boss:
+Boss-->Alert:
+Alert-->BossUI:return result
+deactivate Alert
+
+BossUI-->ReservationSystem:return false
+deactivate BossUI
+
+ReservationSystem-->ReservationSystem:return false
+deactivate ReservationSystem
+ReservationSystem-->ReservationSystem:return true
+
+
+deactivate ReservationSystem
+ReservationSystem-->BossUI:return false
+deactivate ReservationSystem
+BossUI-->Boss:
+deactivate BossUI
+
