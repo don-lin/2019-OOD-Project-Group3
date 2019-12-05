@@ -1,0 +1,52 @@
+title Check-out BCE
+actor Manager
+control BookingSystem
+participant Hotel
+entity room
+
+entity Booking(all)
+entity Booking(selected)
+
+Manager->BookingSystem:setTime(time)
+activate BookingSystem
+BookingSystem->Hotel:getRoom(time)
+activate Hotel
+Hotel->room:*selectAll()
+activate room
+room-->Hotel:return allRoom
+deactivate room
+Hotel->Booking(all):*selectBooking(time)
+activate Booking(all)
+Booking(all)-->Hotel:return allBooking
+deactivate Booking(all)
+Hotel->Hotel:matchRoomStatus()
+Hotel-->BookingSystem:return allRoomsStatus
+
+BookingSystem->BookingSystem:refreshRoomState()
+Manager->BookingSystem:selectRoom(roomId)
+BookingSystem->Hotel:getRoomDetail(time,roomId)
+
+Hotel->Booking(selected):getDetail()
+activate Booking(selected)
+Booking(selected)-->Hotel:return detail
+deactivate Booking(selected)
+Hotel-->BookingSystem:return detail
+
+BookingSystem->BookingSystem:showRoomDetail()
+Manager->BookingSystem:checkout()
+BookingSystem->Manager:askConfirm()
+activate Manager
+Manager-->BookingSystem:return comfirm
+deactivate Manager
+BookingSystem->Hotel:updateRoomStatus(status)
+Hotel->Booking(selected):updateStatus(status)
+activate Booking(selected)
+Booking(selected)-->Hotel:return newDetail
+deactivate Booking(selected)
+Hotel-->BookingSystem:return newDetail
+deactivate Hotel
+BookingSystem->BookingSystem:refreshRoomStatus()
+BookingSystem-->Manager:
+deactivate BookingSystem
+
+

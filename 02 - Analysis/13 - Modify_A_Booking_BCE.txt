@@ -1,0 +1,56 @@
+title Modify A Booking BCE
+
+
+actor staff
+entity HotelManageSystem
+control Hotel
+participant Booking
+participant Room
+
+staff->HotelManageSystem:displayBookedRooms()
+activate HotelManageSystem
+HotelManageSystem->Hotel:getBookedRooms()
+activate Hotel
+
+Hotel->Booking:getAllBookings()
+activate Booking
+
+Booking-->Hotel:return bookings
+deactivate Booking
+
+Hotel->Room:getAllRooms()
+activate Room
+Room-->Hotel:return rooms
+
+deactivate Room
+
+Hotel->Hotel:getBookedRoomsList()
+
+Hotel-->HotelManageSystem:return allBookedRoomsList
+deactivate Hotel
+
+HotelManageSystem->HotelManageSystem:showMenu()
+
+HotelManageSystem-->staff:return bookedRooms
+activate staff
+
+staff->HotelManageSystem:modifyABooking()
+deactivate staff
+
+HotelManageSystem->HotelManageSystem:showMenu()
+
+HotelManageSystem->staff:getNewCustomerInformation()
+activate staff
+staff-->HotelManageSystem:return information
+deactivate staff
+
+
+HotelManageSystem->Customer:updateCustomerInformation()
+activate Customer
+Customer->HotelManageSystem:return success
+deactivate Customer
+
+HotelManageSystem->HotelManageSystem:showMenu()
+
+HotelManageSystem-->staff:return success
+deactivate HotelManageSystem

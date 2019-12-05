@@ -1,0 +1,59 @@
+title Book A Room BCE
+
+actor staff
+entity HotelManageSystem
+control Hotel
+participant Booking
+participant Room
+
+staff->HotelManageSystem:displayAvailableRooms()
+activate HotelManageSystem
+HotelManageSystem->Hotel:getAvailableRooms()
+activate Hotel
+
+Hotel->Booking:getAllBookings()
+activate Booking
+
+Booking-->Hotel:return bookings
+deactivate Booking
+
+Hotel->Room:getAllRooms()
+activate Room
+Room-->Hotel:return rooms
+
+deactivate Room
+
+Hotel->Hotel:getAvailableRoomsList()
+
+Hotel-->HotelManageSystem:return allAvailableRoomsList
+deactivate Hotel
+
+HotelManageSystem->HotelManageSystem:showMenu()
+
+HotelManageSystem-->staff:return availableRooms
+activate staff
+
+staff->HotelManageSystem:selectRoomAndDate()
+deactivate staff
+
+HotelManageSystem->HotelManageSystem:showMenu()
+
+HotelManageSystem->staff:getCustomerInformation()
+activate staff
+staff-->HotelManageSystem:return information
+deactivate staff
+
+HotelManageSystem->Booking:addANewBooking()
+activate Booking
+Booking->HotelManageSystem:return success
+deactivate Booking
+
+HotelManageSystem->Customer:addANewCustomer()
+activate Customer
+Customer->HotelManageSystem:return success
+deactivate Customer
+
+HotelManageSystem->HotelManageSystem:showMenu()
+
+HotelManageSystem-->staff:return success
+deactivate HotelManageSystem
