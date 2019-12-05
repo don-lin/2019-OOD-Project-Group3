@@ -1,0 +1,81 @@
+actor Boss
+boundary RoomDialog
+boundary BossUI
+
+control ReservationSystem
+participant Hotel
+participant ReservationMapper
+database Database
+entity Room
+
+Boss->BossUI:addRoom()
+activate BossUI
+
+BossUI->*RoomDialog:RoomDialog()
+activate RoomDialog
+RoomDialog-->BossUI:
+deactivate RoomDialog
+
+BossUI->RoomDialog:showAndWait()
+activate RoomDialog
+RoomDialog->Boss:
+Boss-->RoomDialog:
+RoomDialog-->BossUI:
+deactivate RoomDialog
+
+BossUI->ReservationSystem:addRoom(roomNumber:int, price:int, type:String)
+activate ReservationSystem
+
+expandable- see diagram 02 - Add Room ECE(1) (double added room)
+
+ReservationSystem->ReservationSystem:checkDoubleRoom(RoomNumber:int)
+end
+expandable- see diagrams 02 - Add Room ECE (2) (illegal input)
+	ReservationSystem->ReservationSystem:checkIllegalPrice(price:int)
+end
+
+ReservationSystem->Hotel:addRoom(roomNumber:int, price:int, type:String)
+activate Hotel
+
+
+Hotel->ReservationMapper:addRoom(roomNumber:int, price:int, type:String)
+activate ReservationMapper
+
+ReservationMapper->ReservationMapper:performUpdate(sql : String)
+activate ReservationMapper
+
+
+ReservationMapper->Database:executeUpdate(sql : String)
+ReservationMapper-->ReservationMapper:
+deactivate ReservationMapper
+
+
+ReservationMapper->*Room:PersistentRoom(roomNumber:Integer, price:int, type:String)
+activate Room
+Room-->ReservationMapper:
+deactivate Room
+ReservationMapper-->Hotel:
+deactivate ReservationMapper
+Hotel-->ReservationSystem:
+deactivate Hotel
+ReservationSystem->ReservationSystem:notifyObservers()
+activate ReservationSystem
+ReservationSystem->BossUI:update()
+activate BossUI
+BossUI->ReservationSystem:getRooms()
+activate ReservationSystem
+ReservationSystem-->BossUI:return rooms
+deactivate ReservationSystem
+BossUI->ReservationSystem:getReservations()
+activate ReservationSystem
+ReservationSystem-->BossUI: return Reservations
+deactivate ReservationSystem
+BossUI-->ReservationSystem:
+deactivate BossUI
+deactivateafter ReservationSystem
+
+
+ReservationSystem-->BossUI:
+deactivate ReservationSystem
+BossUI-->Boss:
+deactivate BossUI
