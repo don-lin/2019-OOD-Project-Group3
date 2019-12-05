@@ -1,0 +1,36 @@
+title Display All Rooms Status BCE
+
+actor staff
+entity HotelManageSystem
+control Hotel
+participant Booking
+participant Room
+
+staff->HotelManageSystem:displayAllRoomStatus()
+activate HotelManageSystem
+HotelManageSystem->Hotel:getAllRoomStatus()
+activate Hotel
+
+Hotel->Booking:getAllBookings()
+activate Booking
+
+Booking-->Hotel:return bookings
+deactivate Booking
+
+Hotel->Room:getAllRooms()
+activate Room
+Room-->Hotel:return rooms
+
+deactivate Room
+
+Hotel->Hotel:getAllRoomStatusList()
+
+Hotel-->HotelManageSystem:return allRoomStatusList
+deactivate Hotel
+
+HotelManageSystem->HotelManageSystem:showMenu()
+
+HotelManageSystem-->staff:return allRoomStatus
+deactivate HotelManageSystem
+
+
