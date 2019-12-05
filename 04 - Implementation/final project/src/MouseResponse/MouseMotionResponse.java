@@ -6,6 +6,9 @@ import UI.UserInterface;
 
 public class MouseMotionResponse implements MouseMotionListener{
 
+    /**
+     * this class will response the mose motion and dragged events
+     */
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
 		// TODO Auto-generated method stub

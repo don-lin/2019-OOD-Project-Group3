@@ -10,7 +10,9 @@ import java.util.LinkedList;
 import Database.Room.Room;
 
 public class RoomQuery {
-    
+    /**
+     * @return all rooms query from the database in a LinkedList data type
+     */
     public LinkedList<Room> queryAllRooms() {
 	LinkedList<Room> rooms=new LinkedList<Room>();
 	    try {
@@ -31,13 +33,20 @@ public class RoomQuery {
 	    }
 	    return rooms;
 	  }
-    
+    /**
+     * insert one room into the database
+     * @param room the room that will be inserted into the database
+     */
     public void InsertRoom(Room room) {
         String sql = "INSERT INTO Room VALUES ("+room.number+","+room.bedNumber+","+room.price+") ;";
         executeStatement(sql);
 	
     }
-    
+
+    /**
+     * execute a single sql query
+     * @param sql the sql query that will be executed
+     */
     public void executeStatement(String sql) {
 	      System.out.println(sql);
 	      String url = "jdbc:sqlite:./bs.db";

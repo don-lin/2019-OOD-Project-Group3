@@ -10,6 +10,11 @@ public class Customer{
 	public String description;
 	
 	
+	/**
+	 * convert the customer to string
+	 * @return a string
+	 */
+	@Override
 	public String toString() {
 		String result=new String();
 		

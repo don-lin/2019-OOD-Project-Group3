@@ -9,7 +9,11 @@ public class Booking{
 	public int customerId;
 	public int Date;
 	
-	
+	/**
+	 * convert the booking to string
+	 * @return a string
+	 */
+	@Override
 	public String toString() {
 		String result=new String();
 		

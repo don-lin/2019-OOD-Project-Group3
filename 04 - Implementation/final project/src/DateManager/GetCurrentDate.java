@@ -7,14 +7,24 @@ import java.util.Calendar;
 public class GetCurrentDate {
     public static String currentDate="2019-12-06";
     
+    /**
+     * calculate the next date
+     */
     public static void addOne() {
 	modify(1);
     }
     
+    /**
+     * calculate the previous date
+     */
     public static void minusOne() {
 	modify(-1);
     }
     
+    /**
+     * calculate the date after/before a certain date
+     * @param date the value of date change
+     */
     private static void modify(int date) {
 	String dt = currentDate;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -31,6 +31,9 @@ public class UserInterface extends JPanel{
 	public static int count=0;
 	public static int order=1;
 	
+	/**
+	 * initialize the userinterface and red the images from the local image files
+	 */
 	public UserInterface() {
 		for(int i=0;i<backgrounds.length;i++) {
 			try {
@@ -41,6 +44,14 @@ public class UserInterface extends JPanel{
 		}
 	}
 	
+	/**
+	 * 
+	 * @param g graphics
+	 * @param text string that will be drawn
+	 * @param x location x of the drawn
+	 * @param y lcoation y of the drawn
+	 */
+	
 	private void drawString(Graphics g, String text, int x, int y) {
 		if(!showDebug)
 			return;
@@ -49,6 +60,9 @@ public class UserInterface extends JPanel{
 	}
 	public static int showLevel=-1;
 	
+	/**
+	 * @return rooms that should be drawn on the screen
+	 */
 	public static LinkedList<Room> getList(){
 		LinkedList<Room> l1=RoomMapper.get();
 		LinkedList<Room> l2=new LinkedList<Room>();
@@ -64,6 +78,10 @@ public class UserInterface extends JPanel{
 		Collections.sort(l2);
 		return l2;
 	}
+	
+	/**
+	 * paint the screen
+	 */
 	public void paintComponent(Graphics g) // draw graphics in the panel
 	{
 		count+=order;

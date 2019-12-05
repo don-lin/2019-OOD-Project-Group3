@@ -16,6 +16,9 @@ public class RoomManageWindow{
 	public int RoomNumber = 0;
 	public static final int RoomManageWidth=350;
 	
+	/**
+	 * the modify button show on the dialog
+	 */
 	class ManageButton implements ActionListener {
 		JTextField number;
 		JTextField type;
@@ -39,13 +42,24 @@ public class RoomManageWindow{
 		}
 	}
 
+	/**
+	 * if no room rumber is assigned, the default value is -1
+	 */
 	public RoomManageWindow() {
 		RoomNumber = -1;
 	}
 
+	/**
+	 * 
+	 * @param number the room number of the room manage dialog
+	 */
 	public RoomManageWindow(int number) {
 		RoomNumber = number;
 	}
+	
+	/**
+	 * start the room manage window and show a dialog
+	 */
 
 	public void run() {
 		JFrame frame1 = new JFrame("Modify A Room");

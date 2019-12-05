@@ -39,11 +39,20 @@ public class SystemController {
 	
 	public static int[] roomStatues;
 	
+	/**
+	 * 
+	 * @param b button that will be set location
+	 * @param x location x
+	 * @param y location y
+	 */
 	public static void setButtonLocation(JButton b,double x,double y) {
 		
 		b.setBounds((int)(x*ScreenWidth), (int)(y*ScreenHeight), ScreenWidth/6, ScreenHeight/10);
 		b.setBorderPainted(true);
 	}
+	/**
+	 * notify the button's information shold be updated
+	 */
 	public static void refreshRoomButton() {
 		LinkedList<Room> rl=UserInterface.getList();
     	for(int i=0;i<9;i++) {
@@ -67,6 +76,9 @@ public class SystemController {
 		bar.setValue((int)(page*1.0/(UserInterface.getList().size()/9)*100));
     	//jjf.repaint();
 	}
+	/**
+	 * notify the sort type is changed
+	 */
 	public static void refreshSort() {
 		Color y=new Color(1,(float)0.949,(float)0.8);
 		Color b=new Color((float)0.854,(float)0.90,(float)0.98);
@@ -79,6 +91,9 @@ public class SystemController {
 		case 0:SortByNumber.button.setBackground(b);break;
 		}
 	}
+	/**
+	 * notify the show type is changed
+	 */
 	public static void refreshShow() {
 		Color y=new Color(1,(float)0.949,(float)0.8);
 		Color b=new Color((float)0.854,(float)0.90,(float)0.98);
@@ -94,18 +109,21 @@ public class SystemController {
 		case 2:ShowPaidRooms.button.setBackground(b);break;
 		}
 	}
+	/**
+	 * show the main window
+	 */
 	public static void run() {
 
 		JFrame jf = new JFrame("OOD");
 		jjf=jf;
-		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 设置关闭方式 如果不设置的话 似乎关闭窗口之后不会退出程序
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setLocation(10, 10);
 		jf.setSize(ScreenWidth, ScreenHeight);
 		
 		
-		Container conn = jf.getContentPane(); // 得到窗口的容器
-		conn.setLayout(null); // 设置布局方式为空 也就是绝对布局
-		JLabel L1 = new JLabel("Hotel Management System"); // 创建一个标签 并设置初始内容
+		Container conn = jf.getContentPane();
+		conn.setLayout(null);
+		JLabel L1 = new JLabel("Hotel Management System");
 		L1.setLocation(50,0);
 		L1.setSize(300, 50);
 		L1.setForeground(Color.white);
@@ -171,10 +189,8 @@ public class SystemController {
             @Override
             public void actionPerformed(ActionEvent arg0) {
             	JFrame frame1 = new JFrame("Input Your Password");
-			//设置在屏幕的位置
         		frame1.getContentPane().setLayout(null);
 			frame1.setLocation(100,50);
-//			窗体大小
 			frame1.setSize(400,200);
 			JButton button2 = new JButton("Log-in");
 			button2.addActionListener(new ActionListener(){
@@ -194,8 +210,6 @@ public class SystemController {
 			frame1.add(button2);
 
 			frame1.add(text1);
-
-//			显示窗体
 			frame1.setVisible(true);
             }           
         });
@@ -357,7 +371,7 @@ public class SystemController {
 		AnimationThread a=new AnimationThread();
 		a.start();
 		
-		jf.setVisible(true);// 设置窗口可见
+		jf.setVisible(true);//set window visible
 		jf.addMouseWheelListener(new MouseWheelResponse());
 		conn.addMouseMotionListener(new MouseMotionResponse());
 		conn.setBackground(Color.white);

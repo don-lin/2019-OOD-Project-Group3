@@ -11,6 +11,9 @@ import Database.Booking.Booking;
 
 public class BookingQuery {
     
+    /**
+     * @return all bookings query from the database in a LinkedList data type
+     */
     public LinkedList<Booking> queryAllBookings() {
 	LinkedList<Booking> bookings=new LinkedList<Booking>();
 	    try {
@@ -36,12 +39,19 @@ public class BookingQuery {
 	    }
 	    return bookings;
 	  }
-    
+    /**
+     * insert one booking into the database
+     * @param booking the booking that will be inserted into the database
+     */
     public void InsertBooking(Booking booking) {
         String sql = "INSERT INTO Booking VALUES (null,"+booking.roomId+","+booking.checkIn+","+booking.paid+","+booking.customerId+","+booking.Date+") ;";
         executeStatement(sql);
     }
-    
+
+    /**
+     * execute a single sql query
+     * @param sql the sql query that will be executed
+     */
     public void executeStatement(String sql) {
 	      System.out.println(sql);
 	      String url = "jdbc:sqlite:./bs.db";

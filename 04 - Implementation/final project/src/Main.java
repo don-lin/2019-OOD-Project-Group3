@@ -5,7 +5,17 @@ import Database.Query.Room.RoomQuery;
 import SystemController.SystemController;
 
 public class Main {
+    /**
+     * @param args the arguments input from the system
+     */
     public static void main(String[] args) {
+	createDatabaseAll();
+	SystemController.run();
+    }
+    /**
+     * create three databases and insert some values to test it.
+     */
+    public static void createDatabaseAll() {
 	DatabaseCreator.createAll();
 	RoomQuery roomQuery=new RoomQuery();
 	roomQuery.queryAllRooms();
@@ -13,6 +23,5 @@ public class Main {
 	customerQuery.queryAllCustomers();
 	BookingQuery bookingQuery=new BookingQuery();
 	bookingQuery.queryAllBookings();
-	SystemController.run();
     }
 }

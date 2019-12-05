@@ -9,11 +9,19 @@ import InputUI.RoomManageWindow;
 import SystemController.SystemController;
 import UI.UserInterface;
 
+/**
+ * 
+ * @author donlin
+ * response when mouse click one room
+ */
 public class RoomButtonActionListener implements ActionListener{
 	public int id;
 	public RoomButtonActionListener(int i) {
 		id=i;
 	}
+	/**
+	 * when mouse click a room, show a window to edit the room information
+	 */
     public void actionPerformed(ActionEvent arg0) {
 
 		int listID=SystemController.page*9+id;

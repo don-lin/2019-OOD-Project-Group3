@@ -31,8 +31,13 @@ public class RoomMapper {
 			}
 		}
 		l.add(r);
+		
+		allRoomsStatus.put(GetCurrentDate.currentDate, l);
 	}
-	
+	/**
+	 * @param number room number
+	 * @return a room object match the room number
+	 */
 	public static Room get(int number) {
 		if(l==null)
 			return null;
@@ -41,7 +46,10 @@ public class RoomMapper {
 				return l.get(i);
 		return null;
 	}
-	
+	/**
+	 * get the needed room from the database
+	 * @return rooms list from the database
+	 */
 	public static LinkedList<Room> getFromDatabase(){
 	    RoomQuery roomQuery=new RoomQuery();
 		l=roomQuery.queryAllRooms();
@@ -57,7 +65,7 @@ public class RoomMapper {
 	}
 	
 	public static void dealBooking() {
-	    //拿到所有的booking然后把有用的放到list里面
+	    //get all bookings and put the needed into a list
 	}
 	
 	public static void init(String startDate) {
@@ -72,22 +80,36 @@ public class RoomMapper {
 	    allRoomsStatus.put(date, l);
 	}
 	
+	/**
+	 * get a list of the date
+	 * @param date the that will get
+	 * @return a rooms list with status in the date
+	 */
+	
 	public static LinkedList<Room> getList(String date) {
 	    if(allRoomsStatus==null) {
 		init(date);
 	    }
-	    if(allRoomsStatus.containsKey(date))
-		return allRoomsStatus.get(date);
+	    if(allRoomsStatus.containsKey(date)) {
+		l=allRoomsStatus.get(date);
+		return l;
+	    }
 	    else {
 		createNewDate(date);
 		return getList(date);
 	    }
 	}
-	
+	/**
+	 * get a rooms list of the current date
+	 * @return rooms list
+	 */
 	public static LinkedList<Room> get(){
 	    return getList(GetCurrentDate.currentDate);
 	}
 	
+	/**
+	 * create a new rooms list
+	 */
 	public static void createList(){
 		l=new LinkedList<Room>();
 		l.add(new Room(0,101,1,200));
@@ -112,7 +134,9 @@ public class RoomMapper {
 		l.add(new Room(0,302,2,300));
 		l.add(new Room(2,303,1,250));
 	}
-	
+	/**
+	 * set all rooms status in the list to empty
+	 */
 	public static void emptyList() {
 	    for(int i=0;i<l.size();i++) {
 		l.get(i).statusType=0;

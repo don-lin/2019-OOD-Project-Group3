@@ -6,8 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseCreator {
-    
-    
+
+    /**
+     * create three databases and insert some values to test it.
+     */
   public static void createAll() {
         String sql = "CREATE TABLE  IF NOT EXISTS Room (\r\n" + 
             "       RoomID      INT PRIMARY KEY,\r\n" + 
@@ -43,7 +45,10 @@ public class DatabaseCreator {
             sql = "INSERT INTO Booking VALUES (null,202,2,3,4,5) ;";
             executeStatement(sql);
   }
-  
+  /**
+   * execute a single sql query
+   * @param sql the sql query that will be executed
+   */
   public static void executeStatement(String sql) {
       System.out.println(sql);
       String url = "jdbc:sqlite:./bs.db";
@@ -53,11 +58,16 @@ public class DatabaseCreator {
           stmt.execute(sql);
         }
       } catch (SQLException e) {
-        System.err.println("fail to execute "+sql);
-        e.printStackTrace();
+        //System.err.println("fail to execute "+sql);
+        //e.printStackTrace();
       }
   }
-  
+  /**
+   * not implemented
+   * @param RoomId
+   * @param RoomType
+   * @param RoomPrice
+   */
   public static void insertRoom(int RoomId,int RoomType,int RoomPrice) {
       
   }

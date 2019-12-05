@@ -7,6 +7,14 @@ public class Room implements Comparable<Room>{
 	public int bedNumber;
 	public int price;
 	
+	/**
+	 * 
+	 * @param statusType room status
+	 * @param number room number
+	 * @param bedNumber how many bed the room have
+	 * @param price the price of the room
+	 */
+	
 	public Room(int statusType,int number,int bedNumber,int price) {
 		this.statusType=statusType;
 		this.number=number;
@@ -14,6 +22,11 @@ public class Room implements Comparable<Room>{
 		this.price=price;
 	}
 	
+	/**
+	 * convert the room to string
+	 * @return a string
+	 */
+	@Override
 	public String toString() {
 		String result=new String();
 		switch(statusType) {
@@ -26,6 +39,9 @@ public class Room implements Comparable<Room>{
 		
 		return result;
 	}
+	/**
+	 * @return get a HTML string that could be shown on the JFrame Button
+	 */
 	public String toHTMLString() {
 		String result=new String();
 		switch(statusType) {
@@ -39,6 +55,9 @@ public class Room implements Comparable<Room>{
 		return result;
 	}
 
+	/**
+	 * sort rooms by number, status or price
+	 */
 	@Override
 	public int compareTo(Room r) {
 		if (compareType==0)
