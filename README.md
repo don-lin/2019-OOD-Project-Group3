@@ -12,8 +12,13 @@
 
 <hr>
 This is a manage system for a small hotel. The main functions are add a new room, remove an exist room and change the room status.
+<hr>
+<h3>Requirements</h3>
+<h5>To run this hotel manage system, you need:<h5>
+<p>eclipse IDE</p>
+<p>jdk >= 1.8</p>
 
-
+<hr>
 <h2>Design patterns that we use:</h2>
 <h3>1. The Observer Pattern:</h3>
 <p>Class [DateManager](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) manage the current date. When the date change, [DateManager](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) will notify the [RoomMapper](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) which generate a new room status list to match the date.
@@ -30,3 +35,41 @@ This is a manage system for a small hotel. The main functions are add a new room
 
 <h3>5. The Visitor pattern:</h3>
 <p>Interface [PersistentBooking](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) have a function called "getRoomNumber". Class [Booking](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) extend that interface and implement that function.</p>
+
+<hr>
+<h2>software instructions</h2>
+<h3>display all rooms status</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayAllRoomStatus.png)
+<h3>display available rooms status</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayAvailableRoom.png)
+<h3>display booked rooms status</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayBookedRoom.png)
+<h3>display checked rooms status</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayCheckedRoom.png)
+<h3>select a date</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/selectADate.png)
+<h3>sort by price</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/sortByPrice.png)
+<h3>sort by room number</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/sortByRoomNumber.png)
+<h3>sort by room type</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/sortByType.png)
+
+
+
+<h3>select a page</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/selectAPage.png)
+<h3>remove an existing room</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/removeARoom.png)
+<h3>modify price</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/modifyPrice.png)
+<h3>check in</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/checkIn.png)
+<h3>walk in</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/walkIn.png)
+<h3>add a new room</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/addANewRoom.png)
+<h3>add a booking</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/addABooking.png)
+<h3>cancel a booking</h3>
+![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/cancelABooking.png)
