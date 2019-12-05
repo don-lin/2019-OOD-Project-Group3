@@ -1,0 +1,36 @@
+title Display Empty Rooms BCE
+
+actor staff
+entity HotelManageSystem
+control Hotel
+participant Booking
+participant Room
+
+staff->HotelManageSystem:displayEmptyRooms()
+activate HotelManageSystem
+HotelManageSystem->Hotel:getEmptyRooms()
+activate Hotel
+
+Hotel->Booking:getAllBookings()
+activate Booking
+
+Booking-->Hotel:return bookings
+deactivate Booking
+
+Hotel->Room:getAllRooms()
+activate Room
+Room-->Hotel:return rooms
+
+deactivate Room
+
+Hotel->Hotel:getEmptyRoomsList()
+
+Hotel-->HotelManageSystem:return allEmptyRoomsList
+deactivate Hotel
+
+HotelManageSystem->HotelManageSystem:showMenu()
+
+HotelManageSystem-->staff:return emptyRooms
+deactivate HotelManageSystem
+
+
