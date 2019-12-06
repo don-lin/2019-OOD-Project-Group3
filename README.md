@@ -16,7 +16,9 @@ This is a manage system for a small hotel&#x1f600;. The main functions are add a
 <h5>To run this hotel manage system, you need:<h5>
 <p>eclipse IDE  &#x2705;</p>
 <p>jdk >= 1.8  &#x2705;</p>
- <span style="color:red">cardinals</span>.
+
+
+asdfa`adsf`  dfas
 
 <hr>
 <h2>Design patterns  that we use:</h2>
