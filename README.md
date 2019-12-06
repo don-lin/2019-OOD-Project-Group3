@@ -75,12 +75,19 @@ This is a manage system for a small hotel&#x1f600;. The main functions are add a
   - [x] Use Case 10 - Display_Available_Rooms_Status
   - [x] Use Case 11 - Display_Booked_Rooms_Status
   - [x] Use Case 12 - Display_Paid_Rooms_Status
+  - [x] class diagram
+  - [x] database chart
 - [x]  04-Implementation
-  - [ ] design User Interface
-  - [ ] design Database
-  - [ ] design User Interface
-  - [ ] design User Interface
-  - [ ] Sub-task 1
+  - [x] write User Interface java code
+  - [x] write database java code
+  - [x] write mapper java code
+  - [x] design manage system java code
+  - [x] debug User Interface
+  - [x] debug database
+  - [x] debug mapper
+  - [x] debug manage system
+  - [x] write comment
+  - [x] write javadoc
 
 <h3>Yu JiaYue</h3>
 
@@ -104,9 +111,19 @@ This is a manage system for a small hotel&#x1f600;. The main functions are add a
   - [x] Use Case 14 - Modify_Room_Price
   - [x] Use Case 15 - Record_Check_in
   - [x] Use Case 16 - Remove_An_Existing_Room
+  - [x] class diagram
+  - [x] database chart
 - [x]  04-Implementation
-  - [ ] Sub-task 1
-  - [ ] Sub-task 1
+  - [x] write User Interface java code
+  - [x] write database java code
+  - [x] write mapper java code
+  - [x] design manage system java code
+  - [x] debug User Interface
+  - [x] debug database
+  - [x] debug mapper
+  - [x] debug manage system
+  - [x] write comment
+  - [x] write javadoc
 
 
 <h3>Wang Xingren</h3>
@@ -131,9 +148,19 @@ This is a manage system for a small hotel&#x1f600;. The main functions are add a
   - [x] Use Case 02 - Add_Walk-In
   - [x] Use Case 03 - Administrator_Log_in
   - [x] Use Case 04 - Administrator_Log-out
+  - [x] class diagram
+  - [x] database chart
 - [x]  04-Implementation
-  - [ ] Sub-task 1
-  - [ ] Sub-task 1
+  - [x] write User Interface java code
+  - [x] write database java code
+  - [x] write mapper java code
+  - [x] design manage system java code
+  - [x] debug User Interface
+  - [x] debug database
+  - [x] debug mapper
+  - [x] debug manage system
+  - [x] write comment
+  - [x] write javadoc
 
 
 <p>Xing Yang</p>
@@ -158,9 +185,19 @@ This is a manage system for a small hotel&#x1f600;. The main functions are add a
   - [x] Use Case 06 - Cancel_A_Booking
   - [x] Use Case 07 - Check_Out
   - [x] Use Case 08 - Clear_room_status
+  - [x] class diagram
+  - [x] database chart
 - [x]  04-Implementation
-  - [ ] Sub-task 1
-  - [ ] Sub-task 1
+  - [x] write User Interface java code
+  - [x] write database java code
+  - [x] write mapper java code
+  - [x] design manage system java code
+  - [x] debug User Interface
+  - [x] debug database
+  - [x] debug mapper
+  - [x] debug manage system
+  - [x] write comment
+  - [x] write javadoc
 
 <hr>
 <h2>software instructions&#x1F4BB;</h2>
