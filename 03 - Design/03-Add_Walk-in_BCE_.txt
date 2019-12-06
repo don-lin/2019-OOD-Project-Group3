@@ -1,0 +1,77 @@
+title Add Walk-in(BCE)
+actor Staff
+boundary Dialog
+boundary Alert
+boundary StaffUI
+
+control BookingSystem
+participant Hotel
+participant RoomMapper
+participant CustomerMapper
+participant BookingMapper
+database Database
+entity PersistentWalkIn
+
+
+Staff->StaffUI:showAddWalkinDialog()
+activate StaffUI
+
+StaffUI->*Dialog:Dialog()
+activate Dialog
+Dialog-->StaffUI:
+deactivate Dialog
+
+StaffUI->Dialog:showAndWait()
+activate Dialog
+Dialog->Staff:
+Staff-->Dialog:
+Dialog->StaffUI:return w : WalkInfo
+deactivate Dialog
+
+StaffUI->BookingSystem:addWalkIn(rno: int, status : int, startDate : LocalDate, endDate:LocalDate, \narrivalTime : LocalTime, \nname: String, phone: String, VIP: int)
+activate BookingSystem
+expandable- see diagrams 02 - Add Reservation ACE (2) (overfilled room cancel/ok)
+BookingSystem->BookingSystem:checkOverbooking()                                                                            
+end
+
+
+BookingSystem->Hotel:addWalkIn(rno: int, status : int, startDate : LocalDate, endDate:LocalDate, \narrivalTime : LocalTime, \nname: String, phone: String, VIP: int)
+activate Hotel
+
+Hotel-> RoomMapper:getRoom(rno : int)
+activate RoomMapper
+RoomMapper->RoomMapper:getFromCacheByNumber(rno)
+RoomMapper-->Hotel:return r : Room
+deactivate RoomMapper
+
+expandable- see 02 - getCustomer expanded for details of the getCustomer functionality
+Hotel-> CustomerMapper:c:=getCustomer(name: String, phone: String, VIP: int)
+
+                                            
+end
+Hotel ->BookingMapper:addWalkIn(startDate : LocalDate, endDate:LocalDate, \nstatus : int, arrivalTime : LocalTime, \nr: Room, c: Customer)
+activate BookingMapper
+BookingMapper->Database:oid := getId()
+BookingMapper->BookingMapper:performUpdate(sql : String)
+activate BookingMapper
+BookingMapper->Database:executeUpdate(sql : String)
+BookingMapper-->BookingMapper:
+deactivate BookingMapper
+
+BookingMapper->*PersistentWalkIn:PersistentWalkIn(oid : Integer, startDate : LocalDate, endDate:LocalDate, status : int, arrivalTime : LocalTime, r: Room, c: Customer)
+activate PersistentWalkIn
+PersistentWalkIn-->BookingMapper:return booking
+deactivate PersistentWalkIn
+
+BookingMapper-->Hotel: return booking
+deactivate BookingMapper
+Hotel-->BookingSystem:return booking
+deactivate Hotel
+
+
+
+
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+StaffUI-->Staff:
+deactivate StaffUI
