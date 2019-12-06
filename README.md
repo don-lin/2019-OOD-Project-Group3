@@ -1,5 +1,5 @@
 ## <center>Hotel Management System</center>
-### About our team 
+### About our team &#x270C;
 #### group member
 
 | Name         | UCD ID | BJUT ID |
@@ -9,17 +9,17 @@
 | Wang Xingren |17205963|17372212 |
 | Xing Yang    |17206144|17372221 |
 ### Description
-
 <hr>
-This is a manage system for a small hotel. The main functions are add a new room, remove an exist room and change the room status.
+This is a manage system for a small hotel&#x1f600;. The main functions are add a new room, remove an exist room and change the room status.
 <hr>
 <h3>Requirements</h3>
 <h5>To run this hotel manage system, you need:<h5>
-<p>eclipse IDE</p>
-<p>jdk >= 1.8</p>
+<p>eclipse IDE  &#x2705;</p>
+<p>jdk >= 1.8  &#x2705;</p>
+ <span style="color:red">cardinals</span>.
 
 <hr>
-<h2>Design patterns that we use:</h2>
+<h2>Design patterns  that we use:</h2>
 <h3>1. The Observer Pattern:</h3>
 <p>Class [DateManager](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) manage the current date. When the date change, [DateManager](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) will notify the [RoomMapper](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) which generate a new room status list to match the date.
 </p>
@@ -37,7 +37,7 @@ This is a manage system for a small hotel. The main functions are add a new room
 <p>Interface [PersistentBooking](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) have a function called "getRoomNumber". Class [Booking](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) extend that interface and implement that function.</p>
 
 <hr>
-<h2>software instructions</h2>
+<h2>software instructions&#x1F4BB;</h2>
 <h3>display all rooms status</h3>
 ![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayAllRoomStatus.png)
 <h3>display available rooms status</h3>
