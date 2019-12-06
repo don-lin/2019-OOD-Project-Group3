@@ -1,0 +1,40 @@
+title Clear Room Satus
+actor Staff
+boundary Alert
+boundary StaffUI
+
+control BookingSystem
+participant Hotel
+entity Booking (selected)
+participant BookingMapper
+database Database
+
+
+
+Staff->StaffUI:clearRoomStatus(rno: Integer)
+activate StaffUI
+StaffUI->BookingSystem:clearRoomStatus(rno: Integer)
+activate BookingSystem
+BookingSystem -->StaffUI:
+StaffUI ->BookingSystem:selectBooking(b: Booking)
+BookingSystem->Booking (selected):updateStatus(status: Integer)
+
+BookingSystem->Hotel:cancelBooking(b: Booking)
+activate Hotel
+Hotel->BookingMapper:cancelBooking(b: Booking)
+activate BookingMapper
+BookingMapper->BookingMapper:performUpdate(sql : String)
+activate BookingMapper
+BookingMapper->Database:executeUpdate(sql : String)
+BookingMapper-->BookingMapper:
+deactivate BookingMapper
+BookingMapper-->Hotel:
+deactivate BookingMapper
+Hotel-->BookingSystem:
+deactivate Hotel
+
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+
+StaffUI-->Staff:
+deactivate StaffUI
