@@ -1,0 +1,37 @@
+title Administrator Log-out
+actor Staff
+boundary Alert
+boundary StaffUI
+
+control BookingSystem
+participant Hotel
+entity Administrator (all)
+entity Administrator(selected)
+participant AdministratorMapper
+database Database
+Staff->StaffUI:logOut()
+activate StaffUI
+StaffUI->BookingSystem:logOut()
+activate BookingSystem
+activate StaffUI
+BookingSystem->BookingSystem:notifyObservers()
+activate BookingSystem
+BookingSystem->StaffUI:message(confirm:Boolean)
+
+StaffUI->Alert:Alert(comfirm:AlertType)
+
+activate Alert
+Alert->Staff:
+Staff-->Alert:
+note over Alert:Stuff press OK
+Alert-->StaffUI:return true
+deactivate Alert
+StaffUI->BookingSystem:retrun true
+deactivate StaffUI
+BookingSystem-->BookingSystem:
+deactivate BookingSystem
+BookingSystem->StaffUI:update()
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+StaffUI-->Staff:
+deactivate StaffUI
