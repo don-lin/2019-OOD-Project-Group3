@@ -1,0 +1,73 @@
+title Display All Room Status BCE
+actor Staff
+boundary StaffUI
+control BookingSystem
+participant Hotel
+participant BookingMapper
+participant RoomMapper
+participant CustomerMapper
+database db
+entity PersistentBooking
+entity PersistentWalkIn
+Staff->StaffUI:submit(date : LocalDate)
+activate StaffUI
+StaffUI->BookingSystem:setDate(date : LocalDate)
+activate BookingSystem
+
+BookingSystem->Hotel:getBookings(date : LocalDate)
+activate Hotel
+
+Hotel->BookingMapper:getBookings(date : LocalDate)
+activate BookingMapper
+BookingMapper->db:executeQuery(sql : String)
+
+loop for every row returned for bookings of checked-in status
+BookingMapper->RoomMapper:r := getRoomforOid(room : Integer)
+BookingMapper->CustomerMapper:getCustomerForOid(customer : Integer)
+BookingMapper->*PersistentBooking:PersistentBooking(oid : Integer, status : Integer, \n    startDate : LocalDate, endDate : LocalDate, r : Room, c : Customer, atime : LocalTime)
+activate PersistentBooking
+PersistentBooking-->BookingMapper:
+deactivate PersistentBooking
+end
+
+BookingMapper->db:executeQuery(sql : String)
+
+loop for every row returned for walk-ins
+BookingMapper->RoomMapper:r := getRoomforOid(room : Integer)
+BookingMapper->CustomerMapper:getCustomerForOid(customer : Integer)
+BookingMapper->*PersistentWalkIn:PersistentWalkIn(oid : Integer, status : Integer, \n    startDate : LocalDate, endDate : LocalDate, r : Room, c : Customer, atime : LocalTime)
+activate PersistentWalkIn
+PersistentWalkIn-->BookingMapper:
+deactivate PersistentWalkIn
+end
+
+BookingMapper-->Hotel:return bookings
+deactivate BookingMapper
+
+
+Hotel-->BookingSystem:return bookings
+deactivate Hotel
+
+BookingSystem->BookingSystem:notifyObservers()
+activate BookingSystem
+
+BookingSystem->StaffUI:update()
+activate StaffUI
+StaffUI->BookingSystem:getDate()
+activate BookingSystem
+BookingSystem-->StaffUI:return date
+deactivate BookingSystem
+
+StaffUI->BookingSystem:getBookings()
+activate BookingSystem
+BookingSystem-->StaffUI:return bookings
+deactivate BookingSystem
+
+StaffUI-->BookingSystem:
+deactivate StaffUI
+
+BookingSystem-->BookingSystem:
+deactivate BookingSystem
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+StaffUI-->Staff:
