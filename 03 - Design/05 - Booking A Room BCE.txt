@@ -1,0 +1,85 @@
+title Book a room BCE
+actor Staff
+boundary AddABookingDialog
+boundary StaffUI
+
+control BookingSystem
+participant Hotel
+participant RoomMapper
+participant CustomerMapper
+participant BookingMapper
+database Database
+entity r (Room)
+entity c (Customer)
+entity Reservation
+
+Staff->StaffUI:addBooking()
+activate StaffUI
+
+StaffUI->AddABookingDialog:addABookingDialog()
+activate AddABookingDialog
+AddABookingDialog-->StaffUI:
+deactivate AddABookingDialog
+
+StaffUI->AddABookingDialog:showAndWait()
+activate AddABookingDialog
+AddABookingDialog->Staff:
+Staff-->AddABookingDialog:
+AddABookingDialog->StaffUI:return c : CusInfo
+deactivate AddABookingDialog
+
+StaffUI->BookingSystem:addBooking(bookedDate : Date,name : String, \nphoneNumber : String)
+activate BookingSystem
+
+BookingSystem->BookingSystem:checkDoubleBooked(name : String, bookingDate : Date, b : Booking)
+
+
+BookingSystem->Hotel:addReservation(b: Booking)
+activate Hotel
+
+Hotel->RoomMapper:getRoom(roomNum : int)
+activate RoomMapper
+RoomMapper->RoomMapper:getFromCacheByNumber(tno)
+RoomMapper-->Hotel:return r : Room
+deactivate RoomMapper
+
+
+Hotel->BookingMapper:addABooking(roomNum: int,userNam: String, bookDate: Date)
+activate BookingMapper
+BookingMapper->Database:oid:=getId()
+BookingMapper->BookingMapper:performUpdate(sql: String)
+activate BookingMapper
+BookingMapper->Database:executeUpdate(sql : String)
+BookingMapper-->BookingMapper:
+deactivate BookingMapper
+
+
+BookingMapper->*Reservation:PersistentBookingMaapper(oid : Integer, date: Date,r : Room, c : Customer)
+activate Reservation
+Reservation-->BookingMapper:
+deactivate Reservation
+BookingMapper-->Hotel:
+deactivate BookingMapper
+Hotel-->BookingSystem:
+deactivate Hotel
+BookingSystem->BookingSystem:notifyObservers()
+activate BookingSystem
+BookingSystem->StaffUI:update()
+activate StaffUI
+StaffUI->BookingSystem:getDate()
+activate BookingSystem
+BookingSystem-->StaffUI:return date
+deactivate BookingSystem
+StaffUI->BookingSystem:getBookings()
+activate BookingSystem
+BookingSystem-->StaffUI: return bookings
+deactivate BookingSystem
+StaffUI-->BookingSystem:
+deactivate StaffUI
+deactivateafter BookingSystem
+
+
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+StaffUI-->Staff:
+deactivate StaffUI

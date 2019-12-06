@@ -1,0 +1,64 @@
+title Modify a Booking BCE
+actor Staff
+boundary StaffUI
+
+control BookingSystem
+participant Restaurant
+entity Booking (current)
+entity Booking (selected)
+participant BookingMapper
+database Database
+Staff->StaffUI:mousePressed(d : Date, rid : Integer)
+activate StaffUI
+
+StaffUI->StaffUI:rid := yToRoom(y : Integer)
+
+StaffUI->BookingSystem:selectBooking(rid : Integer, time : Date)
+activate BookingSystem
+
+loop for each current Booking
+BookingSystem->Booking (current):getRoomNumber()
+BookingSystem->Booking (current):getDate()
+end
+BookingSystem->BookingSystem:notifyObservers()
+BookingSystem->StaffUI:update()
+
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+StaffUI-->Staff:
+deactivate StaffUI
+
+
+
+
+Staff->StaffUI:modifyBooking(b: Booking)
+activate StaffUI
+StaffUI->BookingSystem:modifyBooking(b: Booking)
+
+activate BookingSystem
+
+BookingSystem->Restaurant:room := getRoom(room : Integer)
+BookingSystem->Booking (selected):setDate(date : Date)
+BookingSystem->Booking (selected):setTelphoneNumber(tel : String)
+BookingSystem->Restaurant:updateBooking(selected : Booking)
+activate Restaurant
+Restaurant->BookingMapper:updateBooking(b : Booking)
+activate BookingMapper
+BookingMapper->BookingMapper:performUpdate(sql : String)
+activate BookingMapper
+BookingMapper->Database:executeUpdate(sql : String)
+BookingMapper-->BookingMapper:
+deactivate BookingMapper
+BookingMapper-->Restaurant:
+
+
+Restaurant-->BookingSystem:
+deactivate Restaurant
+expandable− see 11 - Display Booked Room BCE
+BookingSystem->BookingSystem:notifyObservers()                    
+end
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+
+StaffUI-->Staff:
+deactivate StaffUI

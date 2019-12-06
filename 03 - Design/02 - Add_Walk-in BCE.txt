@@ -1,4 +1,4 @@
-title Add Walk-in(BCE)
+title Add Walk-in BCE
 actor Staff
 boundary Dialog
 boundary Alert

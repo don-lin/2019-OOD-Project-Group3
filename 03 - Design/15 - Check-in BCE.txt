@@ -1,4 +1,4 @@
-title Check-out
+title Check-in BCE
 actor Staff
 boundary Alert
 boundary StaffUI
@@ -22,33 +22,41 @@ BookingSystem->Booking (current):getBooking()
 BookingSystem->Room (current):getRoom()
 end
 
-expandable− see 12 - Display Checked-in Room BCE
+expandable− see 11 - Display Booked Room BCE
 BookingSystem->BookingSystem:matchRoomStatus() 
 end
 BookingSystem->StaffUI:update()
+
 BookingSystem-->StaffUI:
 deactivate BookingSystem
 StaffUI-->Staff:
 deactivate StaffUI
-Staff->StaffUI:checkout()
+
+Staff->StaffUI:mousePress(roomId:Integer)
 activate StaffUI
-StaffUI->BookingSystem:checkout()
+StaffUI->BookingSystem:getDetail(roomId:Integer)
 activate BookingSystem
-BookingSystem->StaffUI:CheckOutDialog(nameField: TextField,,roomField: TextField)
+
+Staff->StaffUI:checkin()
+
+StaffUI->BookingSystem:checkin()
+:
+BookingSystem->StaffUI:validateInput()
+activate StaffUI
+activate BookingSystem
 StaffUI->Alert:Alert(comfirmation:AlertType)
-activate StaffUI
-activate StaffUI
 activate Alert
 Alert->Staff:
 Staff-->Alert:
-note over Alert:user change status and press OK
+note over Alert:Stuff press OK
 Alert-->StaffUI:return true
-deactivate Alert
 StaffUI-->BookingSystem:return true
+deactivate BookingSystem
 deactivate StaffUI
-BookingSystem->Hotel:deleteBooking(b:Booking)
+deactivate Alert
+BookingSystem->Hotel:updateBooking(b:Booking)
 activate Hotel
-Hotel->BookingMapper:deleteBooking(b:Booking)
+Hotel->BookingMapper:updateBooking(b:Booking)
 activate BookingMapper
 
 BookingMapper->BookingMapper:performUpdate(sql : String)

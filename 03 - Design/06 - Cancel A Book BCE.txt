@@ -1,0 +1,80 @@
+title Cancel a Book BCE
+actor Staff
+boundary Alert
+boundary StaffUI
+
+control BookingSystem
+participant Hotel
+entity Booking (current)
+entity Booking (selected)
+participant BookingMapper
+database Database
+Staff->StaffUI:mousePressed(b : Booking)
+activate StaffUI
+
+StaffUI->BookingSystem:selectBooking(b:Booking)
+activate BookingSystem
+
+loop for each current Booking
+BookingSystem->Booking (current):getRoom()
+end
+BookingSystem->BookingSystem:notifyObservers()
+BookingSystem->StaffUI:update()
+
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+StaffUI-->Staff:
+deactivate StaffUI
+
+
+
+
+Staff->StaffUI:cancelBooking()
+activate StaffUI
+StaffUI->BookingSystem:cancelSelectedBooking()
+activate BookingSystem
+
+BookingSystem->BookingSystem:observerMessage(s : String, true : Boolean)
+activate BookingSystem
+BookingSystem->StaffUI:message(message : String, true : Boolean)
+activate StaffUI
+StaffUI->Alert:Alert( confirmation : AlertType)
+activate Alert
+Alert-->StaffUI:
+deactivate Alert
+
+StaffUI->Alert:showAndWait();
+activate Alert
+Alert->Staff:
+Staff-->Alert:
+note over Alert:user selects OK
+Alert-->StaffUI:return true
+deactivate Alert
+StaffUI-->BookingSystem:return true
+deactivate StaffUI
+
+
+
+BookingSystem->Restaurant:removeBooking(selectedBooking : Booking)
+activate Restaurant
+Restaurant->BookingMapper:deleteBooking(b : Booking)
+activate BookingMapper
+BookingMapper->BookingMapper:performUpdate(sql : String)
+activate BookingMapper
+BookingMapper->Database:executeUpdate(sql : String)
+BookingMapper-->BookingMapper:
+deactivate BookingMapper
+BookingMapper-->Restaurant:
+deactivate BookingMapper
+Restaurant-->BookingSystem:
+deactivate Restaurant
+expandable− see 10 - Display Available Rooms BCE
+BookingSystem->BookingSystem:notifyObservers()                    
+end
+BookingSystem-->BookingSystem:
+deactivate BookingSystem
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+
+StaffUI-->Staff:
+deactivate StaffUI

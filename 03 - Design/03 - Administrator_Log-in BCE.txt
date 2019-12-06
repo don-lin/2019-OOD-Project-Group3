@@ -1,4 +1,4 @@
-title Administrator Log-in
+title Administrator Log-in BCE
 actor Staff
 boundary Alert
 boundary StaffUI
