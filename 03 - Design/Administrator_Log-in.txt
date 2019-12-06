@@ -1,0 +1,38 @@
+title Administrator Log-in
+actor Staff
+boundary Alert
+boundary StaffUI
+
+control BookingSystem
+participant Hotel
+entity Administrator (all)
+entity Administrator(selected)
+participant AdministratorMapper
+database Database
+Staff->StaffUI:logIn()
+activate StaffUI
+StaffUI->BookingSystem:logIn()
+activate BookingSystem
+
+BookingSystem->StaffUI:getDetail()
+StaffUI->Alert:Alert(getDtail:String)
+activate Alert
+Alert->Staff:
+Staff-->Alert:
+note over Alert:Stuff input account number and password
+Alert-->StaffUI:return account password
+deactivate Alert
+activate BookingSystem
+StaffUI->BookingSystem:selectAccount(account:String,haspas:String)
+loop for each administrator
+BookingSystem->Administrator (all):getAccount()
+BookingSystem->Administrator (all):getPasswordHash()
+
+end
+BookingSystem->BookingSystem:notifyObservers()
+deactivate BookingSystem
+BookingSystem->StaffUI:update()
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+StaffUI-->Staff:
+deactivate StaffUI
