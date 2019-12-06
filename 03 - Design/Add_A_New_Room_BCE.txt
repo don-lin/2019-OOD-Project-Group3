@@ -1,3 +1,4 @@
+title Add A New Room BCE
 actor Boss
 boundary RoomDialog
 boundary BossUI

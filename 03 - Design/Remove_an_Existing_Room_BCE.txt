@@ -1,3 +1,4 @@
+title Remove An Existing Room BCE
 actor Boss
 boundary RoomDialog
 boundary Alert

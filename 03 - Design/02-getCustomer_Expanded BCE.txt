@@ -1,4 +1,4 @@
-title getCustomer Expanded
+title get Customer Expanded BCE
 participant Hotel
 participant CustomerMapper
 database Database

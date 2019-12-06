@@ -1,3 +1,4 @@
+title Add A New Room BCE 1
 actor Boss
 boundary Alert
 boundary RoomDialog

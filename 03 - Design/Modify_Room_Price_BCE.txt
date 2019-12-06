@@ -1,3 +1,4 @@
+title Modify Room Price BCE
 actor Boss
 boundary RoomDialog
 boundary BossUI
