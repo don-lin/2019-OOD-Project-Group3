@@ -4,11 +4,15 @@
 
 | Name         | UCD ID | BJUT ID |
 | ------------ | ------ | ------- |
-| Chen Donglin |16206515| 16372229|
+| Chen Donglin|16206515| 16372229|
 | Yu Jiayue    |17206173| 17372203|
 | Wang Xingren |17205963|17372212 |
 | Xing Yang    |17206144|17372221 |
+
+
+
 ### Description
+
 <hr>
 This is a manage system for a small hotel&#x1f600;. The main functions are add a new room, remove an exist room and change the room status.
 <hr>
@@ -47,6 +51,116 @@ This is a manage system for a small hotel&#x1f600;. The main functions are add a
 <strong>`Staﬀ:`</strong><br> The person who manages the booking request from the customer<br><br>
 <strong>`Room-type:`</strong><br> The room with diﬀerent sizes and numbers of beds<br><br>
 <strong>`VIP:`</strong><br> The status of a customer recorded in the hotel database<br><br>
+
+<h2>works</h2>
+<h3>Chen Donglin</h3>
+
+- [x]  01-Requirements or Business Modelling
+  - [x] Use Case 01 - Add_A_New_Room
+  - [x] Use Case 02 - Add_Walk-In
+  - [x] Use Case 03 - Administrator_Log_in
+  - [x] Use Case 04 - Administrator_Log-out
+  - [x] use_case_diagram
+  - [x] domain_model
+  - [x] dependancy_graph
+- [x]  02-Analysis
+  - [x] Use Case 05 - Book_A_Room
+  - [x] Use Case 06 - Cancel_A_Booking
+  - [x] Use Case 07 - Check_Out
+  - [x] Use Case 08 - Clear_room_status
+  - [x] class diagram
+  - [x] state chart
+- [x]  03-Design
+  - [x] Use Case 09 - Display_all_room_status
+  - [x] Use Case 10 - Display_Available_Rooms_Status
+  - [x] Use Case 11 - Display_Booked_Rooms_Status
+  - [x] Use Case 12 - Display_Paid_Rooms_Status
+- [x]  04-Implementation
+  - [ ] design User Interface
+  - [ ] design Database
+  - [ ] design User Interface
+  - [ ] design User Interface
+  - [ ] Sub-task 1
+
+<h3>Yu JiaYue</h3>
+
+- [x]  01-Requirements or Business Modelling
+  - [x] Use Case 05 - Book_A_Room
+  - [x] Use Case 06 - Cancel_A_Booking
+  - [x] Use Case 07 - Check_Out
+  - [x] Use Case 08 - Clear_room_status
+  - [x] use_case_diagram
+  - [x] domain_model
+  - [x] dependancy_graph
+- [x]  02-Analysis
+  - [x] Use Case 09 - Display_all_room_status
+  - [x] Use Case 10 - Display_Available_Rooms_Status
+  - [x] Use Case 11 - Display_Booked_Rooms_Status
+  - [x] Use Case 12 - Display_Paid_Rooms_Status
+  - [x] class diagram
+  - [x] state chart
+- [x]  03-Design
+  - [x] Use Case 13 - Modify_A_Booking
+  - [x] Use Case 14 - Modify_Room_Price
+  - [x] Use Case 15 - Record_Check_in
+  - [x] Use Case 16 - Remove_An_Existing_Room
+- [x]  04-Implementation
+  - [ ] Sub-task 1
+  - [ ] Sub-task 1
+
+
+<h3>Wang Xingren</h3>
+
+- [x]  01-Requirements or Business Modelling
+  - [x] Use Case 09 - Display_all_room_status
+  - [x] Use Case 10 - Display_Available_Rooms_Status
+  - [x] Use Case 11 - Display_Booked_Rooms_Status
+  - [x] Use Case 12 - Display_Paid_Rooms_Status
+  - [x] use_case_diagram
+  - [x] domain_model
+  - [x] dependancy_graph
+- [x]  02-Analysis
+  - [x] Use Case 13 - Modify_A_Booking
+  - [x] Use Case 14 - Modify_Room_Price
+  - [x] Use Case 15 - Record_Check_in
+  - [x] Use Case 16 - Remove_An_Existing_Room
+  - [x] class diagram
+  - [x] state chart
+- [x]  03-Design
+  - [x] Use Case 01 - Add_A_New_Room
+  - [x] Use Case 02 - Add_Walk-In
+  - [x] Use Case 03 - Administrator_Log_in
+  - [x] Use Case 04 - Administrator_Log-out
+- [x]  04-Implementation
+  - [ ] Sub-task 1
+  - [ ] Sub-task 1
+
+
+<p>Xing Yang</p>
+
+- [x]  01-Requirements or Business Modelling
+  - [x] Use Case 13 - Modify_A_Booking
+  - [x] Use Case 14 - Modify_Room_Price
+  - [x] Use Case 15 - Record_Check_in
+  - [x] Use Case 16 - Remove_An_Existing_Room
+  - [x] use_case_diagram
+  - [x] domain_model
+  - [x] dependancy_graph
+- [x]  02-Analysis
+  - [x] Use Case 01 - Add_A_New_Room
+  - [x] Use Case 02 - Add_Walk-In
+  - [x] Use Case 03 - Administrator_Log_in
+  - [x] Use Case 04 - Administrator_Log-out
+  - [x] class diagram
+  - [x] state chart
+- [x]  03-Design
+  - [x] Use Case 05 - Book_A_Room
+  - [x] Use Case 06 - Cancel_A_Booking
+  - [x] Use Case 07 - Check_Out
+  - [x] Use Case 08 - Clear_room_status
+- [x]  04-Implementation
+  - [ ] Sub-task 1
+  - [ ] Sub-task 1
 
 <hr>
 <h2>software instructions&#x1F4BB;</h2>
