@@ -36,6 +36,19 @@ This is a manage system for a small hotel&#x1f600;. The main functions are add a
 <h3>5. The Visitor pattern:</h3>
 <p>Interface [PersistentBooking](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) have a function called "getRoomNumber". Class [Booking](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/tree/master/04%20-%20Implementation/final%20project/src) extend that interface and implement that function.</p>
 
+<h2>glossary</h2>
+
+<strong>Booking(Reservation):</strong><br> An advanced reservation for a room at a particular date for a couple of days<br><br>
+<strong>Customer:</strong><br> The person asking for hotel room booking<br><br>
+<strong>Check-in:</strong><br> The arrival and living-in-hotel of the customer <br><br>
+<strong>Check-out:</strong><br> The leaving of the hotel customer<br><br>
+<strong>Walk-in:</strong><br> A check-in without a booking of the room<br><br>
+<strong>Room-status:</strong><br> The current state of a room, can be already booked, already checked-in(paid) and available for booking<br><br>
+<strong>Administrator(Manager):</strong><br> The person who manages the hotel database system with a login authority<br><br>
+<strong>Staﬀ:</strong><br> The person who manages the booking request from the customer<br><br>
+<strong>Room-type:</strong><br> The room with diﬀerent sizes and numbers of beds<br><br>
+<strong>VIP:</strong><br> The status of a customer recorded in the hotel database<br><br>
+
 <hr>
 <h2>software instructions&#x1F4BB;</h2>
 <h3>display all rooms status</h3>
