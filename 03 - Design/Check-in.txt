@@ -1,0 +1,77 @@
+title Check-in
+actor Staff
+boundary Alert
+boundary StaffUI
+
+control BookingSystem
+participant Hotel
+entity Room (current)
+entity Room (selected)
+participant RoomMapper
+entity Booking (current)
+entity Booking (selected)
+participant BookingMapper
+database Database
+Staff->StaffUI:selectTime(time : Integer)
+activate StaffUI
+
+StaffUI->BookingSystem:selectAllBooking(time : Integer)
+activate BookingSystem
+loop for each current Booking and current Room
+BookingSystem->Booking (current):getBooking()
+BookingSystem->Room (current):getRoom()
+end
+
+expandable− see 11 - Display Booked Room BCE
+BookingSystem->BookingSystem:matchRoomStatus() 
+end
+BookingSystem->StaffUI:update()
+
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+StaffUI-->Staff:
+deactivate StaffUI
+
+Staff->StaffUI:mousePress(roomId:Integer)
+activate StaffUI
+StaffUI->BookingSystem:getDetail(roomId:Integer)
+activate BookingSystem
+
+Staff->StaffUI:checkin()
+
+StaffUI->BookingSystem:checkin()
+:
+BookingSystem->StaffUI:validateInput()
+activate StaffUI
+activate BookingSystem
+StaffUI->Alert:Alert(comfirmation:AlertType)
+activate Alert
+Alert->Staff:
+Staff-->Alert:
+note over Alert:Stuff press OK
+Alert-->StaffUI:return true
+StaffUI-->BookingSystem:return true
+deactivate BookingSystem
+deactivate StaffUI
+deactivate Alert
+BookingSystem->Hotel:updateBooking(b:Booking)
+activate Hotel
+Hotel->BookingMapper:updateBooking(b:Booking)
+activate BookingMapper
+
+BookingMapper->BookingMapper:performUpdate(sql : String)
+activate BookingMapper
+BookingMapper->Database:executeUpdate(sql : String)
+BookingMapper-->BookingMapper:
+deactivate BookingMapper
+BookingMapper-->Hotel:
+deactivate BookingMapper
+Hotel-->BookingSystem:
+expandable− see 09 - Display All Room Status BCE
+BookingSystem->BookingSystem:refreshRoomStatus()        
+end
+BookingSystem-->StaffUI:
+deactivate BookingSystem
+
+StaffUI-->Staff:
+deactivate StaffUI
