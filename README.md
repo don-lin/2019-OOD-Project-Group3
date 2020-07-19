@@ -202,37 +202,37 @@ This is a manage system for a small hotel&#x1f600;. The main functions are add a
 <hr>
 <h2>software instructions&#x1F4BB;</h2>
 <h3>display all rooms status</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayAllRoomStatus.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/displayAllRoomStatus.png)
 <h3>display available rooms status</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayAvailableRoom.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/displayAvailableRoom.png)
 <h3>display booked rooms status</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayBookedRoom.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/displayBookedRoom.png)
 <h3>display checked rooms status</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/displayCheckedRoom.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/displayCheckedRoom.png)
 <h3>select a date</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/selectADate.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/selectADate.png)
 <h3>sort by price</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/sortByPrice.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/sortByPrice.png)
 <h3>sort by room number</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/sortByRoomNumber.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/sortByRoomNumber.png)
 <h3>sort by room type</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/sortByType.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/sortByType.png)
 
 
 
 <h3>select a page</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/selectAPage.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/selectAPage.png)
 <h3>remove an existing room</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/removeARoom.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/removeARoom.png)
 <h3>modify price</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/modifyPrice.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/modifyPrice.png)
 <h3>check in</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/checkIn.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/checkIn.png)
 <h3>walk in</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/walkIn.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/walkIn.png)
 <h3>add a new room</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/addANewRoom.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/addANewRoom.png)
 <h3>add a booking</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/addABooking.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/addABooking.png)
 <h3>cancel a booking</h3>
-![Image of Yaktocat](https://csgitlab.ucd.ie/16206515/2019-ood-project-group3/raw/master/04%20-%20Implementation/instruction/cancelABooking.png)
+![Image of Yaktocat](https://github.com/don-lin/2019-OOD-Project-Group3/tree/master//04%20-%20Implementation/instruction/cancelABooking.png)
